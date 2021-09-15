@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'core/js/index.js' %}" defer></script>
+<link href="{% static 'core/css/index.css' %}" rel="stylesheet">
+{% endblock scripts %}
+
+{% block title %}
+<title>Post</title>
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="container">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <img class="img-fluid rounded" src="https://source.unsplash.com/random/700x450" alt="">
+    </div>
+    <div class="col-lg-6">
+        <h2>Uma abordagem moderna</h2>
+        <p>Conheça os benefícios:</p>
+        <ul>
+            <li>
+                <strong>1 ano</strong> de acesso a <strong>todos os cursos</strong>
+            </li>
+            <li>
+                <strong>Certificados digitais</strong> incluso
+            </li>
+            <li>
+                Cursos novos <strong>toda semana</strong>
+            </li>
+            <li>
+                Plano de carreira <strong>personalizado</strong>
+            </li>
+        </ul>
+        <p class="card-index">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id
+            reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum
+            ducimus unde.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-7">
+
+        <div class="row">
+            <div class="col-md-4">
+                <a href="">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="https://source.unsplash.com/random/300x200" alt="">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <p class="text-">Tecnologia</p>
+                <h4 class="title-post-index">Título do fórum</h4>
+                <div class="row">
+                    <ul class="ul-author-index">
+                        <li class="li-img-index">
+                            <img class="d-flex mr-3 rounded-circle" src="https://source.unsplash.com/random/40x40" alt="">
+                        </li>
+                        <li class="li-data-index">
+                            <h6 class="text-author-date">Fulano de Tal<br>02 de setembro de 2021</h6>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-5"></div>
+</div>
+
+<div class="row row-posts-cards-index">
+    <div class="col-post-card-index col-lg-4 col-sm-6">
+        <div class="card-post-card-index card h-100">
+
+            <img class="img-post-index" src="https://source.unsplash.com/random/700x400" alt="">
+
+            <div class="card-body">
+                <h4 class="title-post-index">
+                    Banco de dados com PostgreSQL
+                </h4>
+                <p class="excerpt-post-index">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
+                    aspernatur
+                    eum quasi sapiente nesciunt? Voluptatibus sit
+                </p>
+
+                <div class="row" style="padding: 1rem 1rem">
+                    <ul class="ul-author-index">
+                        <li class="li-img-index">
+                            <img class="d-flex mr-3 rounded-circle" src="https://source.unsplash.com/random/40x40" alt="">
+                        </li>
+                        <li class="li-data-index">
+                            <h6 class="text-author-date">Fulano de Tal<br>02 de setembro de 2021</h6>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

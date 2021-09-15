@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'core/js/post.js' %}" defer></script>
+<link href="{% static 'core/css/post.css' %}" rel="stylesheet">
+{% endblock scripts %}
+
+{% block title %}
+<title>Post</title>
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-2 sidepage"></div>
+
+    <div class="col-md-8">
+        <h1>
+            {{ post.title }}
+        </h1>
+
+        <h5><strong><a href="">Matéria do G1</a></strong></h5>
+
+        <h5>
+            {{ post.excerpt }}
+        </h5>
+
+        {{ post.content | safe }}
+
+    </div>
+    <div class="col-md-2 sidepage"></div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Inter_Regular;
+    src: url(../fonts/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: Inter_Bold;
+    src: url(../fonts/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: Charter_Regular;
+    src: url(../fonts/Charter-Regular.ttf);
+}
+@font-face {
+    font-family: Charter_Bold;
+    src: url(../fonts/Charter-Bold.ttf);
+}
+
+body {
+    font-family: Charter_Regular;
+}
+h2, h4 {
+    font-family: Charter_Bold;
+}
+p {
+    font-family: Charter_Regular;
+}

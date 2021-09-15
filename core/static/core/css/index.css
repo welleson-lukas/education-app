@@ -1,0 +1,36 @@
+
+/* CARDS POSTS*/
+div.row-posts-cards-index {
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+div.col-post-card-index {
+    margin-bottom: 20px;
+}
+div.card-post-card-index {
+    border: none;
+}
+img.img-post-index {
+
+}
+h4.title-post-index {
+    font-weight: bold;
+    font-size: 32px;
+}
+p.excerpt-post-index {
+    font-size: 18px;
+}
+ul.ul-author-index {
+    display: contents;
+    list-style: none
+}
+li.li-img-index{
+
+}
+li.li-data-index{
+    margin-top: 1%;
+    margin-left: 6px
+}
+h6.text-author-date {
+    font-size: 14px;
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="{% static 'core/js/my_profile.js' %}" defer></script>
+
+<link href="{% static 'core/css/my_profile.css' %}" rel="stylesheet">
+{% endblock scripts %}
+
+{% block title %}
+<title>my profile</title>
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-8" style="background-color: green">ccd</div>
+    <div class="col-4" style="background-color: blue">
+        <div id="sugestions_following" class="col">
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
