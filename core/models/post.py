@@ -26,8 +26,8 @@ class Post(models.Model):
     image = models.ImageField('Imagem', upload_to=get_file_path, blank=True, null=True)
     publish = models.BooleanField('Publicado?', null=False, default=False)
 
-    categories = models.ManyToManyField(Category, related_name='post_categories')
-    tags = models.ManyToManyField(Tag, blank=True, null=True, related_name='post_tag')
+    categories = models.ManyToManyField(Category, blank=True, related_name='post_categories')
+    tags = models.ManyToManyField(Tag, blank=True, related_name='post_tag')
 
     created_at = models.DateTimeField('Created at', auto_now_add=True)
     updated_at = models.DateTimeField('Updated at', auto_now=True)
