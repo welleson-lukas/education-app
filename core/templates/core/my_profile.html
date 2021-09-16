@@ -2,98 +2,124 @@
 {% load static %}
 
 {% block scripts %}
-    <script src="{% static 'core/js/my_profile.js' %}" defer></script>
-    <link href="{% static 'core/css/index.css' %}" rel="stylesheet">
-    <link href="{% static 'core/css/my_profile.css' %}" rel="stylesheet">
+<script src="{% static 'core/js/my_profile.js' %}" defer></script>
+<link href="{% static 'core/css/index.css' %}" rel="stylesheet">
+<link href="{% static 'core/css/my_profile.css' %}" rel="stylesheet">
 {% endblock scripts %}
 
 {% block title %}
-    <title>my profile</title>
+<title>my profile</title>
 {% endblock title %}
 
+
 {% block content %}
-    <div class="row" style="margin-bottom: 50px; margin-top: 50px">
-        <div class="col-md-3">
-            <div class="row">
-                <div align="center">
+<div class="row" style="margin-bottom: 50px; margin-top: 50px">
+    <div class="col-md-3">
+        <div class="row">
+            <div align="center">
 
-                    <img style="width: 100%; height: auto; padding: 30px" class="d-flex mr-3 rounded-circle" src="{{ author.image.url }}">
-                    <h2>
-                        {{ author.user.first_name }}
-                        {{ author.user.last_name }}
-                    </h2>
-
-                    <a href="{{ author.linkedin }}"><i class="fab fa-linkedin-in fa-1x"></i></a>
-                    <a href="{{ author.github }}"><i class="fab fa-github fa-1x"></i></a>
-                    <a href="{{ author.facebook }}"><i class="fab fa-facebook fa-1x"></i></a>
-                    <a href="{{ author.twitter }}"><i class="fas fa-envelope fa-1x"></i></a>
-
+                <div style="
+                     width: 200px;
+                     height: 200px;
+                     background-image: url({{ author.image.url }});
+                     background-size: cover;
+                     display: block;
+                     border-radius: 100px;
+                     -webkit-border-radius: 100px;
+                     -moz-border-radius: 100px;">
                 </div>
+                <h2>
+                    {{ author.user.first_name }}
+                    {{ author.user.last_name }}
+                </h2>
 
-                <div>
-                    <p>
-                        {{ author.about }}
-                    </p>
-                </div>
+                {% if author.linkedin %}
+                <a href="{{ author.linkedin }}"><i class="fab fa-linkedin-in fa-1x"></i></a>
+                {% endif %}
+                {% if author.github %}
+                <a href="{{ author.github }}"><i class="fab fa-github fa-1x"></i></a>
+                {% endif %}
+                {% if author.facebook %}
+                <a href="{{ author.facebook }}"><i class="fab fa-facebook fa-1x"></i></a>
+                {% endif %}
+                {% if author.twitter %}
+                <a href="{{ author.twitter }}"><i class="fas fa-envelope fa-1x"></i></a>
+                {% endif %}
+
+            </div>
+
+            <div>
+                <p>
+                    {{ author.about }}
+                </p>
             </div>
         </div>
+    </div>
 
-        <div class="col-md-9">
-            <div class="row">
+    <div class="col-md-9">
+        <div class="row">
 
-                {% if posts %}
-                    {% for post in posts %}
+            {% if posts %}
+            {% for post in posts %}
 
-                        <div class="col-12">
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-md-8 col-sm-12">
+                        <div>
+                            <a href="{% url 'PostView' post.slug %}">
+                                <h4 class="title-post-index">
+                                    {{ post.title }}
+                                </h4>
+                            </a>
+                        </div>
+
+                        <div>
+                            <p class="excerpt-post-index">
+                                {{ post.excerpt|slice:":255" }}
+                            </p>
+
                             <div class="row">
-
-                                <div class="col-md-8 col-sm-12">
-                                    <div>
-                                        <h4 class="title-post-index">
-                                            {{ post.title }}
-                                        </h4>
-                                    </div>
-
-                                    <div>
-                                        <p class="excerpt-post-index">
-                                            {{ post.excerpt }}
-                                        </p>
-
-                                        <div class="row">
-                                            <h6 class="text-author-date">
-                                                {{ post.updated_at }}
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-12">
-                                    <span><i class="far fa-heart"></i> 10</span>
-                                    <span><i class="far fa-comment"></i> 5</span>
-                                    <div class="row">
-                                        <div class="col">
-                                            <button class="btn btn-light">Tecnlogia</button>
-                                            <button class="btn btn-light">Ciência</button>
-                                            <button class="btn btn-light">Humanas</button>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <hr>
+                                <h6 class="text-author-date">
+                                    {{ post.updated_at }}
+                                </h6>
                             </div>
                         </div>
-                    {% endfor %}
-                {% endif %}
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <span><i class="far fa-heart"></i> 10</span>
+                        <span><i class="far fa-comment"></i> 5</span>
+                        <div class="row">
+                            <div class="col">
+                                {% for category in post.categories.all %}
+                                <a href="{{ category.slug }}" type="button" class="btn btn-light">{{ category }}</a>
+                                {% endfor %}
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <hr>
+                </div>
             </div>
-
-
-            {#        <div class="col-4" style="background-color: blue">#}
-            {#            <div id="sugestions_following" class="col">#}
-            {##}
-            {#            </div>#}
-            {#        </div>#}
+            {% endfor %}
+            {% endif %}
         </div>
+
+
+        {#
+        <div class="col-4" style="background-color: blue">#}
+            {#
+            <div id="sugestions_following" class="col">#}
+                {##}
+                {#
+            </div>
+            #}
+            {#
+        </div>
+        #}
     </div>
-    </div>
+</div>
+</div>
 
 {% endblock content %}

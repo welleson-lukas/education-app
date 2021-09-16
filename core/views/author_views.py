@@ -27,9 +27,9 @@ from core.models.post import Post
 
 
 
-def profile_author(request, author):
-    profile = get_object_or_404(Author, slug=author)
-    posts = Post.objects.filter(author=profile)
+def profile_author(request, slug):
+    profile = get_object_or_404(Author, slug=slug)
+    posts = Post.objects.filter(author=profile, publish=True)
 
     context = {'author': profile, 'posts': posts}
     return render(request, 'core/my_profile.html', context)

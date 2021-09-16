@@ -3,6 +3,7 @@ from core.models.post import Post
 from core.models.author import Author
 from core.models.category import Category
 from core.models.tag import Tag
+from core.models.comment import Comment
 from core.models.file import File
 from core.forms.post_form import PostForm
 from core.forms.category_form import CategoryForm
@@ -47,3 +48,4 @@ admin.site.register(Author)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tag)
+admin.site.register(Comment)

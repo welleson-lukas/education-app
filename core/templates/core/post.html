@@ -19,14 +19,31 @@
             {{ post.title }}
         </h1>
 
-        <h5><strong><a href="">Matéria do G1</a></strong></h5>
-
         <h5>
             {{ post.excerpt }}
         </h5>
 
         {{ post.content | safe }}
 
+        {% if post.tags %}
+        {% for tag in post.tags.all %}
+        <a type="button" class="btn btn-light">#{{ tag }}</a>
+        {% endfor %}
+        {% endif %}
+
+        <hr>
+
+        {% if comentarios %}
+        {% for comentario in comentarios %}
+        <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="{{ comentario.author.image.url }}" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">usuario: {{ comentario.author.user.first_name }} {{ comentario.author.user.last_name }}</h5>
+                {{ comentario.comment }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
     </div>
     <div class="col-md-2 sidepage"></div>
 </div>
